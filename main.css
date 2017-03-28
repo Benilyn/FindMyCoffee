@@ -18,21 +18,21 @@ body {
 }
 
 #background {
-  position: fixed; 
-  top: -50%; 
-  left: -50%; 
-  width: 200%; 
-  height: 200%;
+	position: fixed; 
+	top: -50%; 
+	left: -50%; 
+	width: 200%; 
+	height: 200%;
 }
 #background img {
-  position: absolute; 
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  bottom: 0; 
-  margin: auto; 
-  min-width: 50%;
-  min-height: 50%;
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	right: 0; 
+	bottom: 0; 
+	margin: auto; 
+	min-width: 50%;
+	min-height: 50%;
 }
 
 button {
@@ -63,6 +63,16 @@ button:hover {
 #wait img {
 	width: 75%;
 	height: 75%;
+}
+
+#search-results {
+	opacity: 0.8;
+	border-color: darkslategray;
+}
+
+#map {
+	width: 60vw;
+	height: 60vh;
 }
 
 .transparent {
