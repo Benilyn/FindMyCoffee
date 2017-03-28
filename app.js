@@ -55,6 +55,18 @@ function initMap() {
 		        infoWINDOW = infowindow;
 		        infowindow.setContent(place.name);
 		        infowindow.open(map, this);
+
+		        service.getDetails(place, function(details, status){
+	         		if (status === google.maps.places.PlacesServiceStatus.OK) {
+	            		infowindow.setContent(details.name);
+	            		var $placeDetails = $('<li></li>').appendTo('ul#results-list');
+      					var $placeInfo = $('<div></div>').appendTo($placeDetails);
+      					var $placeName = $('<p class="name">' + details.name + '</p>').appendTo($placeInfo);
+      					var $placeAddress = $('<p class="address">' + details.vicinity + '</p>').appendTo($placeInfo);
+      					var $placeNumber = $('<p class="number">' + details.formatted_phone_number + '</p>').appendTo($placeInfo);	
+	        		}  //if status=OK (getDetails)
+	        	});   //getDetails
+
 		    }); //addListener function
     	} //createMarker function
 
