@@ -13,12 +13,21 @@
 	<div id="background">
 		<img src="hotCoffee.jpg">
 	</div>
-	<button type="button">Search Now</button>
+	<button type="button" class="hide">Search Now</button>
 
 	<div id="wait" class="hide">
 		<p>Searching for your coffee</p>
 		<img src="https://media2.giphy.com/media/7qV3yswT0K8hi/giphy.gif">
-	</div>
+	</div> <!-- wait -->
+
+	<div id="search-results" class="hide">
+		<div id="map"></div>
+		<ul id="results-list"></ul>
+	</div> <!-- search results -->
+
+	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src="app.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNeeXoCSKh9g-5Xsg3vV8DQK6XoPh96So&libraries=places&callback=showUI" async defer></script>
 
 </body>
 </html>
