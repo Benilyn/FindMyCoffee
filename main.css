@@ -75,6 +75,15 @@ button:hover {
 	height: 60vh;
 }
 
+#results-list {
+	width: 40vw;
+	height: 60vh;
+}
+
+#results-list li {
+	border-style: groove;
+}
+
 .transparent {
 	background-color: transparent;
 }
