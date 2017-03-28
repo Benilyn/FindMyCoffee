@@ -1,0 +1,74 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Dosis', sans-serif;
+}
+
+#logo {
+	font-family: 'Playball';
+	font-size: 10vw;
+	color: antiquewhite;
+	text-align: center;
+	height: 15vh;
+	position: relative;
+	margin-bottom: 5%;
+	z-index: 2;
+}
+
+#background {
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+}
+#background img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+}
+
+button {
+	border-style: groove;
+	background-color: darkred;
+	opacity: 0.9;
+	display: block;
+	text-align: center;
+	font-size: 4vw;
+	color: lightgray;
+	z-index: 2;
+	margin: auto;
+	font-family: 'Dosis', sans-serif;
+}
+
+button:hover {
+	color: blue;
+	cursor: pointer;
+	background-color: lightgray;
+}
+
+#wait {
+	width: 50vw;
+	height: 50vh;
+	z-index: 4;
+}
+
+#wait img {
+	width: 75%;
+	height: 75%;
+}
+
+.transparent {
+	background-color: transparent;
+}
+
+.hide {
+	display: none;
+}
