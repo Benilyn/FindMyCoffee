@@ -5,6 +5,7 @@ function showUI(){
 $(document).ready(function(){
 	$('button').click(function(event){
 		$(this).addClass('hide');
+		$('#wait').removeClass('hide');
 		initMap();
 	}); //click function
 }); //document.ready
@@ -24,7 +25,7 @@ function initMap() {
 	    var query = {
 	      location: currentLocation,
 	      keyword: 'coffee',
-	      radius: '2000'
+	      radius: '5000'
 	    };   //var query
 
 	    service.nearbySearch(query, searchResults);
@@ -36,6 +37,7 @@ function initMap() {
 
     	function searchResults(results, status) {
     		if (status === google.maps.places.PlacesServiceStatus.OK) {
+    			$('#wait').addClass('hide');
 		        $('#search-results').removeClass('hide');
 		        var coffeeShops = results.slice(0, 10);
 		        coffeeShops.forEach(createMarker);
