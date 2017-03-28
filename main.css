@@ -13,7 +13,7 @@ body {
 	text-align: center;
 	height: 15vh;
 	position: relative;
-	margin-bottom: 5%;
+	margin-bottom: 3%;
 	z-index: 2;
 }
 
@@ -45,6 +45,7 @@ button {
 	color: lightgray;
 	z-index: 2;
 	margin: auto;
+	margin-top: 10%;
 	font-family: 'Dosis', sans-serif;
 }
 
@@ -67,21 +68,43 @@ button:hover {
 
 #search-results {
 	opacity: 0.8;
-	border-color: darkslategray;
 }
 
 #map {
-	width: 60vw;
+	width: 58.5vw;
 	height: 60vh;
 }
 
 #results-list {
 	width: 40vw;
 	height: 60vh;
+	padding: 0;
+	margin: 0;
+	overflow: scroll;
+	background-color: lightgray;
 }
 
 #results-list li {
-	border-style: groove;
+	border-bottom-style: groove;
+	list-style: none;
+	text-align: center;
+}
+
+.name {
+	margin-top: 5px;
+	margin-bottom: 0;
+	font-size: 2vw;
+}
+
+.address {
+	font-size: 1vw;
+	margin: 0;
+}
+
+.number {
+	font-size: 1vw;
+	margin-top: 0;
+	margin-bottom: 5px;
 }
 
 .transparent {
@@ -90,4 +113,10 @@ button:hover {
 
 .hide {
 	display: none;
+}
+
+.inline {
+	position: fixed;
+	display: inline-block;
+	border-color: darkred;
 }
