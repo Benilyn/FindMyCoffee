@@ -19,10 +19,13 @@ function initMap() {
     	var currentLocation = {
     		lat: position.coords.latitude,
     		lng: position.coords.longitude};
+
+    	$('#wait').addClass('hide');
     	map = new google.maps.Map(document.getElementById('map'), {
-	    	center: currentLocation,
-	    	zoom: 13
-	    }); //map
+			    	center: currentLocation,
+			    	zoom: 13
+			    }); //map
+    	
 
 	    var service = new google.maps.places.PlacesService(map);
 	    var query = {
@@ -33,47 +36,60 @@ function initMap() {
 
 	    service.nearbySearch(query, searchResults);
 	    var currentPosition = new google.maps.Marker({
-	    	position: currentLocation,
-	    	map: map,
-	    	label: 'You are here',
-    	}); //currentPosition
+			    	position: currentLocation,
+			    	map: map,
+			    	label: 'You are here',
+		    	}); //currentPosition
 
     	function searchResults(results, status) {
     		if (status === google.maps.places.PlacesServiceStatus.OK) {
-    			$('#wait').addClass('hide');
+    			
+    			
 		        $('#search-results').removeClass('hide');
 		        $('#results-list').removeClass('hide');
+		        
+			    
+		        google.maps.event.trigger(window.map, 'resize');
+		        window.map.setCenter(currentLocation);
 		        var coffeeShops = results.slice(0, 10);
 		        coffeeShops.forEach(createMarker);
+
 	    	} //if status=OK (searchResults)
     	} //searchResults
 
     	var infoWINDOW;
-    	function createMarker(place){
+    	function createMarker(place, index){
+    		
     		var marker = new google.maps.Marker({
 		        map: map,
-		    //    label: labels[index],
+		        label: labels[index],
 		        position: place.geometry.location,
       		});   //var marker
+    		
 
-      		service.getDetails(place, function(details, status){
-	         		if (status === google.maps.places.PlacesServiceStatus.OK) {
-	            	//	infowindow.setContent(place.name);
-	            		var $placeDetails = $('<li></li>').appendTo('ul#results-list');
-      					var $placeInfo = $('<div></div>').appendTo($placeDetails);
-      					var $placeName = $('<p class="name">' + details.name + '</p>').appendTo($placeInfo);
-      					var $placeAddress = $('<p class="address">' + details.vicinity + '</p>').appendTo($placeInfo);
-      					var $placeNumber = $('<p class="number">' + details.formatted_phone_number + '</p>').appendTo($placeInfo);	
-	        		}  //if status=OK (getDetails)
-	        	});   //getDetails
+    		service.getDetails(place, function(details, status){
+	            var $placeDetails = $('<li></li>').appendTo('ul#results-list');
+	            var $label = $('<div></div>').text(labels[index]).appendTo($placeDetails);
+      			var $placeInfo = $('<div></div>').appendTo($placeDetails);
+      			var $placeName = $('<p class="name">' + details.name + '</p>').appendTo($placeInfo);
+      			var $placeAddress = $('<p class="address">' + details.vicinity + '</p>').appendTo($placeInfo);
+      			var $placeNumber = $('<p class="number">' + details.formatted_phone_number + '</p>').appendTo($placeInfo);	
+	        	
+	        	google.maps.event.addListener(marker, 'click', function() {
+			        if (infoWINDOW) { infoWINDOW.close(); }
 
-      		google.maps.event.addListener(marker, 'click', function() {
-		        if (infoWINDOW) { infoWINDOW.close(); }
-		        var infowindow = new google.maps.InfoWindow();
-		        infoWINDOW = infowindow;
-		        infowindow.setContent(place.name);
-		        infowindow.open(map, this);
-			}); //addListener function		
+				        var infowindow = new google.maps.InfoWindow();
+				        infoWINDOW = infowindow;
+				        infowindow.setContent(place.name);
+				        infowindow.open(map, this);
+				        $('ul#results-list li').removeClass('highlight');
+				        $placeDetails.addClass('highlight');
+					}); //addListener function		
+
+	        });   //getDetails
+      		
+
+
     	} //createMarker
 
 
