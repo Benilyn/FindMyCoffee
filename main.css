@@ -114,6 +114,11 @@ button:hover {
 	margin-bottom: 5px;
 }
 
+.label .place {
+	display: inline-block;
+	height: auto;
+}
+
 .transparent {
 	background-color: transparent;
 }
