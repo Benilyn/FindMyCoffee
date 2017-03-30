@@ -69,8 +69,8 @@ function initMap() {
 
     		service.getDetails(place, function(details, status){
 	            var $placeDetails = $('<li></li>').appendTo('ul#results-list');
-	            var $label = $('<div></div>').text(labels[index]).appendTo($placeDetails);
-      			var $placeInfo = $('<div></div>').appendTo($placeDetails);
+	            var $label = $('<div class="label"></div>').text(labels[index]).appendTo($placeDetails);
+      			var $placeInfo = $('<div class="place"></div>').appendTo($placeDetails);
       			var $placeName = $('<p class="name">' + details.name + '</p>').appendTo($placeInfo);
       			var $placeAddress = $('<p class="address">' + details.vicinity + '</p>').appendTo($placeInfo);
       			var $placeNumber = $('<p class="number">' + details.formatted_phone_number + '</p>').appendTo($placeInfo);	
