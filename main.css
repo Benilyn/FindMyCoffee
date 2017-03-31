@@ -95,6 +95,8 @@ button:hover {
 #results-list li {
 	border-bottom-style: groove;
 	text-align: center;
+	display: flex;
+	flex-direction: row;
 }
 
 .name {
