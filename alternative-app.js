@@ -18,20 +18,19 @@ function initMap() {
 	navigator.geolocation.getCurrentPosition(function(position) {
     	var currentLocation = {
     		lat: position.coords.latitude,
-    		lng: position.coords.longitude};
+    		lng: position.coords.longitude
+    	}; //var currentLocation
 
     	$('#wait').addClass('hide');
     	map = new google.maps.Map(document.getElementById('map'), {
 			    	center: currentLocation,
 			    	zoom: 13
 			    }); //map
-    	
-
 	    var service = new google.maps.places.PlacesService(map);
 	    var query = {
 	    	location: currentLocation,
 	    	keyword: 'coffee',
-	    	radius: '5000'
+	    	radius: '2000'
 	    };   //var query
 
 	    service.nearbySearch(query, searchResults);
@@ -44,29 +43,23 @@ function initMap() {
     	function searchResults(results, status) {
     		if (status === google.maps.places.PlacesServiceStatus.OK) {
     			
-    			
 		        $('#search-results').removeClass('hide');
 		        $('#results-list').removeClass('hide');
-		        
-			    
 		        google.maps.event.trigger(window.map, 'resize');
 		        window.map.setCenter(currentLocation);
 		        var coffeeShops = results.slice(0, 10);
 		        coffeeShops.forEach(createMarker);
-
 	    	} //if status=OK (searchResults)
     	} //searchResults
 
     	var infoWINDOW;
     	function createMarker(place, index){
-    		
     		var marker = new google.maps.Marker({
 		        map: map,
 		        label: labels[index],
 		        position: place.geometry.location,
       		});   //var marker
     		
-
     		service.getDetails(place, function(details, status){
 	            var $placeDetails = $('<li></li>').appendTo('ul#results-list');
 	            var $label = $('<div class="label"></div>').text(labels[index]).appendTo($placeDetails);
@@ -74,10 +67,9 @@ function initMap() {
       			var $placeName = $('<p class="name">' + details.name + '</p>').appendTo($placeInfo);
       			var $placeAddress = $('<p class="address">' + details.vicinity + '</p>').appendTo($placeInfo);
       			var $placeNumber = $('<p class="number">' + details.formatted_phone_number + '</p>').appendTo($placeInfo);	
-	        	
+	        	$placeDetails.css('order', index);
 	        	google.maps.event.addListener(marker, 'click', function() {
 			        if (infoWINDOW) { infoWINDOW.close(); }
-
 				        var infowindow = new google.maps.InfoWindow();
 				        infoWINDOW = infowindow;
 				        infowindow.setContent(place.name);
@@ -85,15 +77,8 @@ function initMap() {
 				        $('ul#results-list li').removeClass('highlight');
 				        $placeDetails.addClass('highlight');
 					}); //addListener function		
-
-	        });   //getDetails
-      		
-
-
+	        }); //getDetails
     	} //createMarker
-
-
-
     }); //getCurrentPosition
 } //initMap
 
