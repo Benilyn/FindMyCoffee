@@ -90,6 +90,8 @@ button:hover {
 	margin: 0;
 	overflow: scroll;
 	background-color: lightgray;
+	display: flex;
+	flex-direction: column;
 }
 
 #results-list li {
@@ -97,6 +99,7 @@ button:hover {
 	text-align: center;
 	display: flex;
 	flex-direction: row;
+	align-items: center;
 }
 
 .name {
