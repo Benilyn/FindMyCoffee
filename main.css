@@ -116,9 +116,14 @@ button:hover {
 	margin-bottom: 5px;
 }
 
-.label .place {
-	display: inline-block;
-	height: auto;
+.label {
+	flex-basis: 4em;
+	flex-grow: 0;
+}
+
+.place {
+	flex-basis: 10em;
+	flex-grow: 1;
 }
 
 .transparent {
