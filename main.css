@@ -11,7 +11,7 @@ body {
 	font-size: 10vw;
 	color: antiquewhite;
 	text-align: center;
-	height: 15vh;
+	
 	position: relative;
 	margin-bottom: 3%;	
 }
@@ -55,14 +55,14 @@ button:hover {
 }
 
 #wait {
-	width: 50vw;
-	height: 50vh;
+	width: 50%;
+	height: auto;
 	border-style: groove;
-	background-color: lightgray
+	background-color: lightgray;
 	color: darkred;
 	text-align: center;
 	font-size: 3vw;
-	display: 
+	margin:	auto;
 }
 
 #wait img {
@@ -72,7 +72,10 @@ button:hover {
 
 #search-results {
 	opacity: 0.8;
-	width: 100%
+	width: 100%;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 
 #map {
@@ -82,17 +85,21 @@ button:hover {
 
 #results-list {
 	width: 100%;
-	height: auto;
+	height: 20vh;
 	padding: 0;
 	margin: 0;
 	overflow: scroll;
 	background-color: lightgray;
+	display: flex;
+	flex-direction: column;
 }
 
 #results-list li {
 	border-bottom-style: groove;
-	list-style: none;
 	text-align: center;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 }
 
 .name {
@@ -112,6 +119,16 @@ button:hover {
 	margin-bottom: 5px;
 }
 
+.label {
+	flex-basis: 4em;
+	flex-grow: 0;
+}
+
+.place {
+	flex-basis: 10em;
+	flex-grow: 1;
+}
+
 .transparent {
 	background-color: transparent;
 }
@@ -120,8 +137,19 @@ button:hover {
 	display: none;
 }
 
-.flex {
-	position: fixed;
-	display: flex;
-	border-color: darkred;
+.highlight {
+	background-color: lightblue;
 }
+@media screen and (min-width: 480px) {
+	.flex {
+		display: flex;
+		border-color: darkred;
+	}
+	
+	#results-list {
+		width: 40%;
+		height: 60vh;
+	}
+
+}
+
