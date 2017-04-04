@@ -1,5 +1,6 @@
 function showUI(){
 	$('button').removeClass('hide');
+	$('#results-list').hide();
 } //showUI
 
 $(document).ready(function(){
@@ -44,7 +45,7 @@ function initMap() {
     		if (status === google.maps.places.PlacesServiceStatus.OK) {
     			
 		        $('#search-results').removeClass('hide');
-		        $('#results-list').removeClass('hide');
+		        $('#results-list').show();
 		        google.maps.event.trigger(window.map, 'resize');
 		        window.map.setCenter(currentLocation);
 		        var coffeeShops = results.slice(0, 10);
@@ -71,6 +72,9 @@ function initMap() {
 	        	google.maps.event.addListener(marker, 'click', function() {
 			        if (infoWINDOW) { infoWINDOW.close(); }
 				        var infowindow = new google.maps.InfoWindow();
+				        google.maps.event.addListener(infowindow,'closeclick',function(){
+				        	$('ul#results-list li').removeClass('highlight');
+				        }); //add listener closeclick
 				        infoWINDOW = infowindow;
 				        infowindow.setContent(place.name);
 				        infowindow.open(map, this);
