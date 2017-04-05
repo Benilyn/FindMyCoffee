@@ -96,7 +96,6 @@ button:hover {
 
 #results-list li {
 	border-bottom-style: groove;
-	text-align: center;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -122,11 +121,14 @@ button:hover {
 .label {
 	flex-basis: 4em;
 	flex-grow: 0;
+	color: darkred;
+	text-align: center;
 }
 
 .place {
 	flex-basis: 10em;
 	flex-grow: 1;
+	text-align: left;
 }
 
 .transparent {
