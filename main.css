@@ -90,15 +90,17 @@ button:hover {
 	margin: 0;
 	overflow: scroll;
 	background-color: lightgray;
-	display: flex;
 	flex-direction: column;
 }
 
 #results-list li {
 	border-bottom-style: groove;
-	display: flex;
 	flex-direction: row;
 	align-items: center;
+}
+
+.flex {
+		display: flex;
 }
 
 .name {
@@ -143,10 +145,7 @@ button:hover {
 	background-color: lightblue;
 }
 @media screen and (min-width: 480px) {
-	.flex {
-		display: flex;
-		border-color: darkred;
-	}
+	
 	
 	#results-list {
 		width: 40%;
