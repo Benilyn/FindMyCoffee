@@ -1,6 +1,5 @@
 function showUI(){
 	$('button').removeClass('hide');
-	$('#search-results').hide();
 } //showUI
 
 $(document).ready(function(){
@@ -43,9 +42,7 @@ function initMap() {
 
     	function searchResults(results, status) {
     		if (status === google.maps.places.PlacesServiceStatus.OK) {
-    			
 		        $('#search-results').show();
-		        
 		        google.maps.event.trigger(window.map, 'resize');
 		        window.map.setCenter(currentLocation);
 		        var coffeeShops = results.slice(0, 10);
@@ -62,7 +59,7 @@ function initMap() {
       		});   //var marker
     		
     		service.getDetails(place, function(details, status){
-	            var $placeDetails = $('<li></li>').appendTo('ul#results-list');
+	            var $placeDetails = $('<li class="flex"></li>').appendTo('ul#results-list');
 	            var $label = $('<div class="label"></div>').text(labels[index]).appendTo($placeDetails);
       			var $placeInfo = $('<div class="place"></div>').appendTo($placeDetails);
       			var $placeName = $('<p class="name">' + details.name + '</p>').appendTo($placeInfo);
