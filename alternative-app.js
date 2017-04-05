@@ -49,6 +49,9 @@ function initMap() {
 		        var coffeeShops = results.slice(0, 10);
 		        coffeeShops.forEach(createMarker);
 	    	} //if status=OK (searchResults)
+	    	else if (status === google.maps.places.PlacesServiceStatus.OVER_QUERY_LIMIT) {
+	    		var $over = $('<li class="name">We are currently performing regular maintenance, please try again later.</li>');
+	    	} //else if status=OVER_QUERY_LIMIT (searchResults)
     	} //searchResults
 
     	var infoWINDOW;
