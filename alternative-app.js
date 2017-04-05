@@ -37,6 +37,7 @@ function initMap() {
 	    var currentPosition = new google.maps.Marker({
 			    	position: currentLocation,
 			    	map: map,
+			    	icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
 			    	label: 'You are here',
 		    	}); //currentPosition
 
