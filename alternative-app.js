@@ -44,7 +44,8 @@ function initMap() {
     	function searchResults(results, status) {
     		if (status === google.maps.places.PlacesServiceStatus.OK) {
 		        $('#search-results').show();
-		        google.maps.event.trigger(window.map, 'resize');
+		        $('#search-results').addClass('background')
+;		        google.maps.event.trigger(window.map, 'resize');
 		        window.map.setCenter(currentLocation);
 		        var coffeeShops = results.slice(0, 10);
 		        coffeeShops.forEach(createMarker);
