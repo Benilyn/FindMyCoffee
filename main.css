@@ -89,14 +89,19 @@ button:hover {
 	padding: 0;
 	margin: 0;
 	overflow: scroll;
-	background-color: lightgray;
 	flex-direction: column;
+	display: flex;
 }
 
 #results-list li {
 	border-bottom-style: groove;
 	flex-direction: row;
 	align-items: center;
+	min-height: 2em;
+}
+
+.background {
+	background-color: lightgray;
 }
 
 .flex {
@@ -145,7 +150,10 @@ button:hover {
 	background-color: lightblue;
 }
 @media screen and (min-width: 480px) {
-	
+	.flex {
+		display: flex;
+		border-color: darkred;
+	}
 	
 	#results-list {
 		width: 40%;
