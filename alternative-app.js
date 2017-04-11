@@ -1,6 +1,5 @@
 function showUI(){
 	$('button').removeClass('hide');
-	$('#results-list').hide();
 } //showUI
 
 $(document).ready(function(){
@@ -31,26 +30,29 @@ function initMap() {
 	    var query = {
 	    	location: currentLocation,
 	    	keyword: 'coffee',
-	    	radius: '2000'
+	    	rankBy: google.maps.places.RankBy.DISTANCE
 	    };   //var query
 
 	    service.nearbySearch(query, searchResults);
 	    var currentPosition = new google.maps.Marker({
 			    	position: currentLocation,
 			    	map: map,
+			    	icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
 			    	label: 'You are here',
 		    	}); //currentPosition
 
     	function searchResults(results, status) {
     		if (status === google.maps.places.PlacesServiceStatus.OK) {
-    			
-		        $('#search-results').removeClass('hide');
-		        $('#results-list').show();
-		        google.maps.event.trigger(window.map, 'resize');
+		        $('#search-results').show();
+		        $('#search-results').addClass('background')
+;		        google.maps.event.trigger(window.map, 'resize');
 		        window.map.setCenter(currentLocation);
 		        var coffeeShops = results.slice(0, 10);
 		        coffeeShops.forEach(createMarker);
 	    	} //if status=OK (searchResults)
+	    	else if (status === google.maps.places.PlacesServiceStatus.OVER_QUERY_LIMIT) {
+	    		var $over = $('<li class="name">We are currently performing regular maintenance, please try again later.</li>');
+	    	} //else if status=OVER_QUERY_LIMIT (searchResults)
     	} //searchResults
 
     	var infoWINDOW;
@@ -62,7 +64,7 @@ function initMap() {
       		});   //var marker
     		
     		service.getDetails(place, function(details, status){
-	            var $placeDetails = $('<li></li>').appendTo('ul#results-list');
+	            var $placeDetails = $('<li class="flex"></li>').appendTo('ul#results-list');
 	            var $label = $('<div class="label"></div>').text(labels[index]).appendTo($placeDetails);
       			var $placeInfo = $('<div class="place"></div>').appendTo($placeDetails);
       			var $placeName = $('<p class="name">' + details.name + '</p>').appendTo($placeInfo);

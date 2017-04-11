@@ -11,7 +11,6 @@ body {
 	font-size: 10vw;
 	color: antiquewhite;
 	text-align: center;
-	
 	position: relative;
 	margin-bottom: 3%;	
 }
@@ -24,6 +23,7 @@ body {
 	width: 200%; 
 	height: 200%;
 }
+
 #background img {
 	position: absolute; 
 	top: 0; 
@@ -88,45 +88,52 @@ button:hover {
 	height: 20vh;
 	padding: 0;
 	margin: 0;
-	overflow: scroll;
-	background-color: lightgray;
-	display: flex;
+	overflow-y: scroll;
 	flex-direction: column;
+	display: flex;
 }
 
 #results-list li {
 	border-bottom-style: groove;
-	text-align: center;
-	display: flex;
 	flex-direction: row;
 	align-items: center;
+	flex-shrink: 0;
+	display: flex;
+}
+
+.background {
+	background-color: lightgray;
 }
 
 .name {
 	margin-top: 5px;
 	margin-bottom: 0;
-	font-size: 2vw;
+	font-size: calc(1.2em + 0.5vW);
 }
 
 .address {
-	font-size: 1vw;
+	font-size: calc(0.75em + 0.33vW);
 	margin: 0;
 }
 
 .number {
-	font-size: 1vw;
+	font-size: calc(0.75em + 0.33vW);
 	margin-top: 0;
 	margin-bottom: 5px;
 }
 
 .label {
-	flex-basis: 4em;
+	flex-basis: 2.5em;
 	flex-grow: 0;
+	color: darkred;
+	text-align: center;
+	font-size: 1.5em;
 }
 
 .place {
 	flex-basis: 10em;
 	flex-grow: 1;
+	text-align: left;
 }
 
 .transparent {
@@ -140,10 +147,10 @@ button:hover {
 .highlight {
 	background-color: lightblue;
 }
+
 @media screen and (min-width: 480px) {
-	.flex {
+	#search-results {
 		display: flex;
-		border-color: darkred;
 	}
 	
 	#results-list {
