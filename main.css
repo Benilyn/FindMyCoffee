@@ -107,16 +107,16 @@ button:hover {
 .name {
 	margin-top: 5px;
 	margin-bottom: 0;
-	font-size: 2vw;
+	font-size: calc(1.2em + 0.5vW);
 }
 
 .address {
-	font-size: 1vw;
+	font-size: calc(0.75em + 0.33vW);
 	margin: 0;
 }
 
 .number {
-	font-size: 1vw;
+	font-size: calc(0.75em + 0.33vW);
 	margin-top: 0;
 	margin-bottom: 5px;
 }
