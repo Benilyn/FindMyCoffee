@@ -98,6 +98,7 @@ button:hover {
 	flex-direction: row;
 	align-items: center;
 	flex-shrink: 0;
+	display: flex;
 }
 
 .background {
@@ -122,10 +123,11 @@ button:hover {
 }
 
 .label {
-	flex-basis: 4em;
+	flex-basis: 2.5em;
 	flex-grow: 0;
 	color: darkred;
 	text-align: center;
+	font-size: 1.5em;
 }
 
 .place {
