@@ -20,5 +20,7 @@ As a mom who is always on the go, I often find myself craving for coffee to get 
 
 There's a delay in displaying the Google map.
 
-Geolocation does not work on non-secure origin (http), click geolocation for more information.
+Geolocation does not work on non-secure origin (http), click [here](https://developers.google.com/web/updates/2016/04/geolocation-on-secure-contexts-only) for more information.
+
+Due to some browsers security and privacy settings, geolocation may not work properly.
 
